@@ -8,5 +8,6 @@ export const types = {
     authLogout: '[auth] Logout',
 
     booksLoaded: '[book] Books Loaded',
-    bookDeleted: '[book] Book Deleted'
+    bookDeleted: '[book] Book Deleted',
+    bookUpdated: '[book] Book Updated'
 }

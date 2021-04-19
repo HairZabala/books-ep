@@ -12,7 +12,7 @@ export const BooksScreen = ({ history }) => {
         dispatch( booksStarLoading() );
     }, [dispatch])
 
-    const { books = [] } = useSelector(state => state.book)
+    const { books = [] } = useSelector(state => state.book);
 
     const handleNewBook = () => {
         history.replace('/create');
