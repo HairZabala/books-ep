@@ -119,8 +119,14 @@ export const AddBookScreen = ({ history }) => {
                             onChange={ handleBookInputChange }
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary mr-2">Save</button>
-                    <button type="button" className="btn btn-danger" onClick={ handleBack }>Back</button>
+                    <button type="submit" className="btn btn-primary mr-2">
+                        <i className="fas fa-save"></i> 
+                        <span> Save</span>
+                    </button>
+                    <button type="button" className="btn btn-danger" onClick={ handleBack }>
+                        <i className="fas fa-undo-alt"></i> 
+                        <span> Back</span>
+                    </button>
                 </form>
 
                 </div>
