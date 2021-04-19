@@ -8,11 +8,11 @@ export const startLogin = (email, password) => {
         const resp = await fetchWithoutToken('login', { email, password}, 'POST');
         const body = await resp.json();
         
+        // console.log(body);
+
         if( body.status ){
             localStorage.setItem('token', body.token);
             localStorage.setItem('token-init-date', new Date().getTime());
-            localStorage.setItem('user', JSON.stringify(body.user));
-
 
             dispatch(login(body.user));
 
@@ -32,7 +32,6 @@ export const starChecking = () => {
         if( body.status ){
             localStorage.setItem('token', body.token);
             localStorage.setItem('token-init-date', new Date().getTime());
-            localStorage.setItem('user', JSON.stringify(body.user));
 
             // console.log(body);
             dispatch(login(body.user));

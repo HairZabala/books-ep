@@ -5,8 +5,8 @@ import {
     Switch,
 } from "react-router-dom";
 import { starChecking } from '../actions/auth';
-import { BooksScreen } from '../components/books/BooksScreen';
 import { LoginScreen } from '../components/login/LoginScreen';
+import { DashboardRoutes } from './DashboardRoutes';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 
@@ -35,10 +35,8 @@ export const AppRouter = () => {
                     />
                     <PrivateRoute 
                         path="/" 
-                        component={ BooksScreen } 
+                        component={ DashboardRoutes } 
                         isAuthenticated={ !!uid }/>
-                    {/* <Route exact path="/login" component={ LoginScreen } isAuthenticated={logged}/>
-                    <Route path="/" component={ BooksScreen } isAuthenticated={logged}/> */}
                 </Switch>
             </div>
         </Router>
