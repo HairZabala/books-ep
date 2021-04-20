@@ -2,20 +2,46 @@ import Swal from 'sweetalert2';
 import { fetchWithToken } from '../helpers/fetch';
 import { types } from '../types/types';
 
-export const booksStarLoading = () => {
+export const booksStarLoading = (year = '') => {
+    return async(dispatch) => {
+
+        // console.log(year);
+        if( year === '' ) {
+            dispatch(allBooksStartLoading());
+        }else {
+            dispatch(BooksFilterByYearLoading(year));
+        }
+    }
+}
+
+export const allBooksStartLoading = () => {
     return async(dispatch) => {
 
         try {
             const resp = await fetchWithToken('books');
             const body = await resp.json();
-            
             const books = body.books;
             dispatch(booksLoaded(books));
 
         } catch (error) {
             console.log(error);
         }
+    }
+}
 
+export const BooksFilterByYearLoading = (year) => {
+    return async(dispatch) => {
+
+        try {
+            const resp = await fetchWithToken(`books/getbyyear/${year}`);
+            const body = await resp.json();
+            console.log(body);
+            const books = body.books;
+            dispatch(booksLoaded(books));
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

@@ -4,7 +4,7 @@ import { TableRowBookScreen } from './TableRowBookScreen'
 
 export const TableBookScreen = ({ books, handleUpdateBook, handleDeleteBook }) => {
     return (
-        <table className="table">
+        <table className="table animate__animated animate__fadeInLeft">
             <TableHeadBookScreen />
             <tbody>
 

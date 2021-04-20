@@ -4,7 +4,7 @@ import { startLogin } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
 import './login.css';
 
-export const LoginScreen = () => {
+export const LoginScreen = ({history}) => {
 
     const dispatch = useDispatch();
 
@@ -18,7 +18,12 @@ export const LoginScreen = () => {
     const handleLogin = (e) => {
         e.preventDefault();
 
+        // const lastPath = localStorage.getItem('lastPath') || '/';
+        
         dispatch( startLogin(email, password) );
+        
+        // history.replace(lastPath);
+        
     }
 
     return (
@@ -26,7 +31,7 @@ export const LoginScreen = () => {
             <div className="container">
                 <h3 className="mt-5">Welcome to BooksEP - Please log-in.</h3>
                 <hr />
-                <div className="row login-container justify-content-center">
+                <div className="row login-container justify-content-center animate__animated animate__fadeInLeft">
                     <div className="col-6 login-form-1 text-center">
                         <h3>BooksEP</h3>
                         <form onSubmit={ handleLogin }>
